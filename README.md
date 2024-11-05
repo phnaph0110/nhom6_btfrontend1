@@ -1,4 +1,4 @@
-# nhom6_Phát triển ứng dụng Thương mại điện tử
+# Nhóm 6_Phát triển ứng dụng TMĐT
 <p>Bài tập về nhà buổi 5 - Advance Front End
   <br><b>Deadline</b>
   <br>Câu a, b: 5/11
