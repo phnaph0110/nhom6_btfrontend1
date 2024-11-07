@@ -1,0 +1,1295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+/* Phần header */
+nav {
+    background-color: white;
+    padding: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Đảm bảo không có phần tử nào tràn ra */
+}
+
+
+.nav-container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Khoảng cách padding mặc định */
+    flex-wrap: wrap; /* Tự động xuống hàng khi không đủ chỗ */
+    box-sizing: border-box; /* Đảm bảo padding không làm tràn container */
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap; /* Tự động xuống hàng khi không đủ chỗ */
+}
+
+
+.nav-links a {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: #333;
+    padding: 8px;
+    font-weight: 500;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+/* Hiệu ứng khi hover */
+.nav-links a:hover {
+    color: #ff6aa7;
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+
+.logo img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+
+/* Thanh tìm kiếm với width tối đa */
+.nav-search input {
+    width: 250px;
+    max-width: 100%; /* Đảm bảo chiều rộng không vượt quá container */
+    padding: 0.8rem;
+    border-radius: 25px;
+    border: 1px solid #ff6aa7;
+    font-size: 1rem;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+
+    .nav-links {
+        gap: 1.5rem; /* Giảm khoảng cách giữa các link */
+        justify-content: center; /* Canh giữa các link */
+    }
+
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+
+    .logo img {
+        height: 70px;
+        width: 70px;
+    }
+
+
+    .nav-search input {
+        width: 200px;
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 5px;
+    }
+
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+
+    .logo img {
+        height: 60px;
+        width: 60px;
+    }
+
+
+    .nav-search input {
+        width: 100%;
+        max-width: 180px;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+
+
+/* Điều chỉnh scale của banner */
+.carousel-inner .item img {
+    height: 350px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the space, cropping excess */
+    width: 100%; /* Keeps the image responsive */
+  }
+
+
+
+
+
+
+
+
+/* Phần trình bày sản phẩm */
+.gallery-container h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2em;
+    text-align: center;
+    color: black;
+    letter-spacing: 0em;
+    transition: transform 0.3s ease;
+    margin: 10px;
+    padding: 25px;
+    padding-left: 5%;
+}
+
+
+.product-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+/* Kích thước mặc định cho .product-content */
+.product-content {
+    width: 30%;
+    justify-items: center;
+    align-items: center;
+    margin-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #555;
+    position: relative;
+}
+
+
+.product-img img {
+    max-width: 100%;
+    border-radius: 1%;
+    position: relative;
+}
+
+
+/* Chuyển đổi chữ khi hover */
+.product-content h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #ff6aa7;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+.product-content:hover h1 {
+    text-shadow: 2px 2px 5px rgba(251, 141, 179, 0.6);
+}
+
+
+/* Nút thêm vào giỏ hàng */
+.add-to-cart {
+    color: #ff6aa7;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ff6aa7;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.product-price {
+    transition: opacity 0.3s ease;
+    margin-top: 5px;
+}
+
+
+.product-content:hover .product-price {
+    opacity: 0;
+}
+
+
+.product-content:hover .add-to-cart {
+    opacity: 1;
+}
+
+
+/* Phần tag discount */
+.discount-label,
+.product-label {
+    position: absolute;
+    padding: 5px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+
+.discount-label {
+    top: 10px;
+    left: 10px;
+    background-color: #b03052;
+}
+
+
+.product-label {
+    top: 10px;
+    right: 10px;
+    background-color: #d76c82;
+}
+
+
+/* Responsive styles */
+
+
+/* Medium devices (Tablets, 768px and up) */
+@media (max-width: 768px) {
+    .gallery-container h2 {
+        font-size: 1.8em;
+        padding: 15px;
+    }
+
+
+    .product-content {
+        width: 45%; /* Tăng chiều rộng để hiển thị 2 sản phẩm trên một hàng */
+        margin-bottom: 20px;
+    }
+
+
+    .product-content h1 {
+        font-size: 18px;
+    }
+
+
+    .add-to-cart {
+        padding: 8px;
+    }
+
+
+    .discount-label,
+    .product-label {
+        font-size: 12px;
+    }
+}
+
+
+/* Small devices (Mobile phones, 480px and up) */
+@media (max-width: 480px) {
+    .gallery-container h2 {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+
+
+    .product-section {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+
+    .product-content {
+        width: 100%; /* Đặt chiều rộng sản phẩm 100% để hiển thị 1 sản phẩm mỗi hàng */
+        margin-bottom: 15px;
+    }
+
+
+    .product-content h1 {
+        font-size: 16px;
+    }
+
+
+    .add-to-cart {
+        padding: 6px;
+        font-size: 0.9em;
+    }
+
+
+    .discount-label,
+    .product-label {
+        font-size: 10px;
+        padding: 4px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Phần nhận xét của khách hàng*/
+.reviews-section {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+
+
+
+
+
+
+
+.image-container {
+    flex: 1;
+}
+
+
+
+
+
+
+
+
+.image-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+.image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+.image-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+.image-item:hover img {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+/* Updated image grid */
+.image-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+.image-item.main {
+    max-height: 200px;
+    grid-column: span 2;
+}
+
+
+
+
+
+
+
+
+.image-item.half {
+    height: 200px;
+}
+
+
+
+
+
+
+
+
+/* Zoom effect */
+.image-item img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #ff8bb1 (0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+.image-item:hover img {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+.image-item:hover {
+    box-shadow: 8px 8px 16px rgba(2, 0, 1, 0.927); /* Orange shadow color on hover */}
+
+
+
+
+
+
+
+
+.customer-reviews {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+.customer-reviews h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+
+
+
+
+
+
+
+.review {
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+
+
+.stars {
+    color: #FFD700;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+
+
+.review-text {
+    font-style: italic;
+    font-size:20px;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+
+
+
+.customer-name {
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reviews-section {
+        flex-direction: column;
+    }
+   
+    .image-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+
+
+
+
+
+
+
+    .image-item.main,
+    .image-item.half {
+        height: 150px;
+    }
+
+
+
+
+
+
+
+
+    .customer-reviews h2 {
+        font-size: 1.5rem;
+    }
+   
+    .review {
+        margin-bottom: 1.5rem;
+    }
+   
+    .stars {
+        font-size: 1.2rem;
+    }
+
+
+
+
+
+
+
+
+    .review-text {
+        font-size: 0.9rem;
+    }
+
+
+
+
+
+
+
+
+    .customer-name {
+        font-size: 0.95rem;
+    }
+}
+
+
+
+
+
+
+
+
+/*Phần About Us*/
+
+
+.member-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2em; /* Kích thước chữ */
+    text-align: center; /* Căn trái văn bản */
+    color: black; /* Màu chữ */
+    letter-spacing: 0em; /* Khoảng cách giữa các chữ cái */
+    transition: transform 0.3s ease;
+    margin: 10px; /* Khoảng cách trên và dưới */
+    padding: 25px;
+    padding-left: 5%;
+}
+
+
+
+
+/* Định nghĩa hiệu ứng zoom-in */
+@keyframes zoom-in {
+    0% {
+        opacity: 0; /* Bắt đầu với độ trong suốt là 0 */
+        transform: scale(0.5); /* Bắt đầu với kích thước nhỏ */
+    }
+    100% {
+        opacity: 1; /* Kết thúc với độ trong suốt là 1 */
+        transform: scale(1); /* Kết thúc với kích thước bình thường */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dòng chữ chạy */
+.marquee {
+    background-color: #efb2c7; /* Màu nền cho dòng chữ chạy */
+    color: #000000c9; /* Màu chữ */
+    font-size: 1.4rem; /* Kích thước chữ */
+    font-weight:bold;
+    font-style: italic;
+    text-align: center; /* Căn giữa */
+    padding: 5px 0; /* Khoảng cách trên và dưới */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Định dạng các box thông tin thành viên */
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.team-member {
+    background: #fff;
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    padding: 1.5rem;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động mượt mà */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #fe96c2    ; /* Màu nền xanh nhạt khi hover */
+    transform: rotate(5deg); /* Xoay nhẹ 5 độ khi hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.member-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.team-member h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #2b2929;
+    margin-bottom: 0.5rem;
+}
+/* Tăng kích cỡ chữ khi hover */
+.team-member:hover h2 {
+    transform: scale(1.3);
+}
+.role {
+    font-size: 1rem;
+    color: #4f4a4a;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.description {
+    font-size: 0.9rem;
+    color: #666;
+    padding: 0 1rem;
+    line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.team-member p {
+    font-size: 0.9em; /* Kích thước chữ nhỏ hơn */
+    display: inline-block; /* Giữ icon và văn bản trên cùng một dòng */
+    margin: 5px 0; /* Khoảng cách giữa các dòng thông tin */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.team-member p i {
+    margin-right: 5px; /* Khoảng cách giữa icon và văn bản */
+    color: #ffb5d2; /* Màu cho icon */
+    font-size: 0.8em; /* Kích thước icon nhỏ hơn */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Phần footer*/
+.footer {
+    background-color: #ffe0e6; /* Nền màu hồng nhạt */
+    padding: 2rem;
+    border-top-left-radius: 40px; /* Bo tròn góc nhiều hơn */
+    border-top-right-radius: 40px; /* Bo tròn góc nhiều hơn */
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+
+
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+
+
+
+
+
+
+.logo-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+
+
+
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #753544, #fb2f6c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkle 2s infinite alternate, glow 1.5s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+.footer-logo:hover .logo-circle,
+.footer-logo:hover .logo-text {
+    transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+.intro-text {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 13px;
+    letter-spacing: 0px;
+    word-spacing: -0.8px;
+    padding: 20px;
+    max-width: 300px;
+    text-align:justify;
+}
+
+
+
+
+
+
+
+
+@keyframes sparkle {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); }
+    100% { filter: brightness(1); }
+}
+
+
+
+
+
+
+
+
+/* Glowing effect */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(236, 134, 168, 0.7), 0 0 10px rgba(241, 128, 181, 0.6), 0 0 15px rgba(205, 109, 133, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgb(253, 251, 253), 0 0 30px rgba(202, 88, 147, 0.8), 0 0 40px rgba(230, 37, 95, 0.6);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(204, 54, 104, 0.7), 0 0 10px rgba(181, 66, 108, 0.6), 0 0 15px rgba(212, 56, 82, 0.5);
+    }
+}
+.footer-columns {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between; /* This will prevent items from wrapping */
+    flex-wrap: wrap; /* Allow wrapping only if necessary */
+}
+
+
+
+
+
+
+
+
+.footer-box {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 150px;  /* Increased width to ensure space for text */
+    box-shadow: 0px 4px 8px rgba(157, 157, 157, 0.861);
+    transition: transform 0.3s ease;
+    text-align: left;
+    min-width: 120px;  /* Ensure each box has a minimum width */
+    display: flex;
+    flex-direction: column;  /* Align items vertically */
+    justify-content: space-between;  /* Distribute items evenly */
+    align-items: left;  /* Horizontally center the content */
+ 
+}
+
+
+
+
+
+
+
+
+.footer-box:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+
+
+
+
+
+
+
+.footer-box h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+.footer-box ul {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    word-spacing: -1.8px;
+    color: #000000;
+    font-weight: 400;
+    margin: 2px;
+    padding: 2px;
+    list-style-type: none;
+}
+
+
+
+
+
+
+
+
+.footer-box a {
+    color: #333;
+    font-size: 1.5rem;
+    letter-spacing: 0px;
+    word-spacing: -0.8px;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+.footer-box a:hover {
+    color: #ff5a5f;
+}
+
+
+
+
+
+
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;  /* Increased space between icons */
+    margin-top: 1rem; /* Space between the content and social icons */
+}
+
+
+
+
+
+
+
+
+.social-icons a {
+    font-size: 2rem; /* Increased size of the icons */
+    color: #000; /* Changed color to black */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Hover effect for larger icons */
+    color: #ff5a5f; /* Hover color for icons */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content,
+    .footer-columns {
+        flex-direction: column;
+        align-items: center; /* Center the footer items */
+    }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+    .footer-columns {
+        gap: 1rem;
+    }
+
+
+    .footer-box {
+        width: 100%; /* Make each box take full width */
+        max-width: 300px; /* Limit width for better readability */
+        text-align: center; /* Center-align text in each box */
+    }
+}
