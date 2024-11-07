@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Thư viện Star Rating CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/css/star-rating.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+<style> 
+  /* Đặt chung cho container sản phẩm */
+.product {
+    position: relative;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style cho hình ảnh sản phẩm */
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Badge cho phần trăm giảm giá */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #10171d;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge cho nhãn New hoặc Best Seller */
+.label-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #10171d;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style cho tiêu đề sản phẩm */
+.product h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Style cho xếp hạng đánh giá */
+.rating-loading {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+}
+
+/* Style cho mô tả giá sản phẩm */
+.product-price {
+    font-size: 16px;
+    color: #10171d;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Nút mua ngay */
+.buy-now-btn {
+    display: block;
+    width: 100%;
+    background-color: #10171d;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+.buy-now-btn:hover {
+    background-color: #10171d;
+}
+
+/* Điều chỉnh cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .product {
+        margin-bottom: 20px;
+    }
+    .product h3 {
+        font-size: 16px;
+    }
+    .discount-badge, .label-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">Danh sách sản phẩm</h2>
+    <div class="row">
+        <!-- Sản phẩm 1 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product">
+                <span class="discount-badge">-20%</span>
+                <span class="label-badge">New</span>
+                <img src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwfe275951/Y0319000/Y0319000_C031900001_E01_GHC.jpg?sw=800" alt="Product Image 1">
+                <h3>Dior Addict Lip Maximizer</h3>
+                <input class="rating-loading" value="4" data-size="md">
+                <p class="product-price">1,200,000 VND</p>
+                <button class="buy-now-btn">Mua ngay</button>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 2 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product">
+                <span class="discount-badge">-15%</span>
+                <span class="label-badge">Best Seller</span>
+                <img src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwf68d457e/Y0172009/Y0172009_C017500999_E01_GHC.jpg?sw=800" alt="Product Image 2">
+                <h3>Rouge Dior</h3>
+                <input class="rating-loading" value="5" data-size="md">
+                <p class="product-price">950,000 VND</p>
+                <button class="buy-now-btn">Mua ngay</button>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 3 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="product">
+                <span class="discount-badge">-10%</span>
+                <span class="label-badge">New</span>
+                <img src="https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dw3ff168a1/Y0373000/Y0373000_C037300063_E01_GHC.jpg?sw=800" alt="Product Image 3">
+                <h3>Rosy Glow</h3>
+                <input class="rating-loading" value="3" data-size="md">
+                <p class="product-price">750,000 VND</p>
+                <button class="buy-now-btn">Mua ngay</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- Thư viện Star Rating JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.6/js/star-rating.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Khởi tạo rating cho các sản phẩm
+        $('.rating-loading').rating({
+            displayOnly: false,
+            step: 1,
+            size: 'md',
+            theme: 'krajee-svg'
+        });
+    });
+</script>
+
+</body>
+</html>
